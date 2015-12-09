@@ -600,3 +600,10 @@
 	{
 		border-top-color: #292929;
 	}
+
+	#textbox {
+		width: 90%;
+		margin: 90px auto;
+		padding: 10px;
+		border: 1px solid #cccccc;
+	}
