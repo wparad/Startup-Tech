@@ -16,6 +16,24 @@
     <script type="text/javascript" src="./js/github.js"></script>
     <script type="text/javascript" src="./js/utilities.js"></script>
     <script type="text/javascript" src="./js/mustache.js"></script>
+
+    <script type="text/javascript">
+        window.onload = function() {
+          document.getElementById("home-button").onclick = function() {
+            $('#page-body').load('./content/home.html #page-body');
+            return false;
+          }
+          document.getElementById("systems-button").onclick = function() {
+            $('#page-body').load('./content/systems.html #page-body');
+            return false;
+          }
+          document.getElementById("contact-button").onclick = function() {
+            $('#page-body').load('./content/contact.html #page-body');
+            return false;
+          }
+        }
+    </script>
+</head>
 </head>
 
 <script>
@@ -38,9 +56,9 @@
     <div id="wrapper" class="container">
         <div id="menu" class="container">
             <ul id="primaryNavItems">
-                <li><a href="./index.html" title="Home">Home</a></li>
-                <li><a href="./systems.html" title="Systems">Systems</a></li>
-                <li><a href="./contact.html" title="Contact">Contact</a></li>
+                <li><a id="home-button" href=".#" title="Home">Home</a></li>
+                <li><a id="systems-button" href="#" title="Systems">Systems</a></li>
+                <li><a id="contact-button" href="#" title="Contact">Contact</a></li>
             </ul>
         </div>
 
@@ -48,7 +66,7 @@
             <div>
                 <span class="arrow-down"></span>
             </div>
-            <div id="pageBody" style="text-align: left; margin: 25px;">
+            <div id="page-body" style="text-align: left; margin: 25px;">
 
                 <div>
                     <h4>Innovation</h4>
