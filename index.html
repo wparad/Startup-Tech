@@ -18,17 +18,26 @@
     <script type="text/javascript" src="./js/mustache.js"></script>
 
     <script type="text/javascript">
+        function home_button() { $('#page-body').load('./content/home.html #page-body'); }
+        function innovation_button() { $('#page-body').load('./content/innovation.html #page-body'); }
+        function systems_button() { $('#page-body').load('./content/systems.html #page-body'); }
+        function contact_button() { $('#page-body').load('./content/contact.html #page-body'); }
+
         window.onload = function() {
           document.getElementById("home-button").onclick = function() {
-            $('#page-body').load('./content/home.html #page-body');
+            home_button();
+            return false;
+          }
+          document.getElementById("innovation-button").onclick = function() {
+            innovation_button();
             return false;
           }
           document.getElementById("systems-button").onclick = function() {
-            $('#page-body').load('./content/systems.html #page-body');
+            systems_button();
             return false;
           }
           document.getElementById("contact-button").onclick = function() {
-            $('#page-body').load('./content/contact.html #page-body');
+            contact_button();
             return false;
           }
         }
@@ -56,45 +65,33 @@
     <div id="wrapper" class="container">
         <div id="menu" class="container">
             <ul id="primaryNavItems">
-                <li><a id="home-button" href=".#" title="Home">Home</a></li>
+                <li><a id="home-button" href="#" title="Home">Home</a></li>
+                <li><a id="innovation-button" href="#" title="Innovation">Innovation</a></li>
                 <li><a id="systems-button" href="#" title="Systems">Systems</a></li>
                 <li><a id="contact-button" href="#" title="Contact">Contact</a></li>
             </ul>
         </div>
 
         <div id="three-column" class="container">
-            <div>
-                <span class="arrow-down"></span>
-            </div>
-            <div id="page-body" style="text-align: left; margin: 25px;">
-
-                <div>
-                    <h4>Innovation</h4>
-                    <p>Innovation is at the core of every organization--non-profit, government, private or public, in the classroom, and even in our personal lives. Understanding how to innovate is necessary for us to achieve our goals. There is a reason why nine out of ten startups, and an even higher new product release percentenge, fail. It isn't complicated, but to understand how to create something new, first we need to understand why fundamental systems are in place. These systems drive our ability to succeed, or force failure. Startup Technologies are experts in gathering, reviewing, and detailing what systems are in place, how to implement important policies, and provide needed retrospectives to ensure continued success.</p>
-
-                    <p>There is no such thing as "here's the solution", but understanding what forces are at work, and following simple pattern will guarantee success. The secret is committment to discovery, focusing on learning, and tehn gathering feedback to improve, continuously.</p>
-                </div>
-
-                <div>
-                    <h4>Uniqueness</h4>
-                    <p>At the route of innovation is uniqueness. A vision, a set of values, and a mission, for which everyone believes in. Innovation is not reserved for companies of a particular size, type, or revenue growth, but it is rathe a way of life. If a organization is a living organism, then innovation is the lifeblood which keeps it alive. It may be difficult to recognize the need to innovate, knowing how to once the realization exists, or guaranteeing it when you start to make progress. Here are simple examples that show the need for innovation:</p>
-
-
-                </div>
-            </div>
+            <div><span class="arrow-down"></span></div>
+            <div id="page-body" style="text-align: left; margin: 25px;" />
         </div>
     </div>
 
   </body>
 </body>
 
+<!-- Set default page load out, now that the page-body object has been created -->
+<script> home_button(); </script>
+
+
 <footer id="footer">
     <div class="container marketing">
         <div style="padding-top: 10px; padding-bottom: 10px;">
             <p style="float:left;color:#000000;font-size:12px;line-height:1.3em;">&copy; 2015 Warren Parad</p>
             <p style="float:right;color:#000000;font-size:12px;line-height:1.3em;">
-                <a style="margin-right:20px;" href="/terms-and-conditions/">Terms and Conditions</a>
-                <a style="margin-right:20px;" href="/privacy-policy/">Privacy Policy</a>
+                <a style="margin-right:20px;" href="#">Terms and Conditions</a>
+                <a style="margin-right:20px;" href="#">Privacy Policy</a>
                 <!--<a href="/refund-policy/">Refund Policy</a> -->
             </p>
             <div style="clear: both;"></div>
