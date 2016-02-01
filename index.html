@@ -10,15 +10,10 @@
     <link href="./css/fonts.css" rel="stylesheet" type="text/css" media="all" />
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/modernizr-2.5.3.min.js"></script>
-    <script type="text/javascript" src="./js/lib/underscore-min.js"></script>
-    <script type="text/javascript" src="./js/lib/base64.js"></script>
-    <script type="text/javascript" src="./js/github.js"></script>
-    <script type="text/javascript" src="./js/utilities.js"></script>
-    <script type="text/javascript" src="./js/mustache.js"></script>
 
     <script type="text/javascript">
         function home_button() { $('#page-body').load('./content/home.html #page-body'); }
+        function reviews_button() { $('#page-body').load('./content/reviews.html #page-body'); }
         function innovation_button() { $('#page-body').load('./content/innovation.html #page-body'); }
         function systems_button() { $('#page-body').load('./content/systems.html #page-body'); }
         function contact_button() { $('#page-body').load('./content/contact.html #page-body'); }
@@ -38,6 +33,10 @@
           }
           document.getElementById("contact-button").onclick = function() {
             contact_button();
+            return false;
+          }
+          document.getElementById("reviews-button").onclick = function() {
+            reviews_button();
             return false;
           }
         }
@@ -67,6 +66,7 @@
             <ul id="primaryNavItems">
                 <li><a id="home-button" href="#" title="Home">Home</a></li>
                 <li><a id="innovation-button" href="#" title="Innovation">Innovation</a></li>
+                <li><a id="reviews-button" href="#" title="Reviews">Reviews</a></li>
                 <li><a id="systems-button" href="#" title="Systems">Systems</a></li>
                 <li><a id="contact-button" href="#" title="Contact">Contact</a></li>
             </ul>
