@@ -17,6 +17,11 @@
         function innovation_button() { $('#page-body').load('./content/innovation.html #page-body'); }
         function systems_button() { $('#page-body').load('./content/systems.html #page-body'); }
         function contact_button() { $('#page-body').load('./content/contact.html #page-body'); }
+        
+        function load_review(name) {
+            $('#replace-content').load('./content/reviews/' + name + '.html #replace-content');
+        }
+
 
         window.onload = function() {
           document.getElementById("home-button").onclick = function() {
