@@ -1,0 +1,59 @@
+<div id="replace-content" style="text-align: left; margin: 25px;">
+    <h2 class="title">Tiered Application Philosophy</h2>
+    <div class="post">
+
+		<h1 id="TieredApplicationPhilosophy-Scope">Scope</h1>
+		<p>Not all software applications are equal.  Some interact with others, some provide a fundamental foundation, others provide the user interface.  All applications can be broken down into two main type, and then tiered.</p>
+
+		<h4 id="TieredApplicationPhilosophy-UserApplications">User Applications</h4>
+		<p>These are applications in which the software development team does not own, does not provide immediate support (other than consulting, and that is debatable).  Think Notepad++, to interact with these services you as the client would use the desktop.</p>
+
+
+		<h4 id="TieredApplicationPhilosophy-ServiceApplications">Service Applications</h4>
+		<p>These are all other applications, in which the software development team is 100% responsible for all aspects of the software development life cycle (SDLC).  This includes software development, building, testing, deployment to application servers, monitoring, logging, taking down services, documenting, and all other tasks.  This is what it means to be a full-stack developer.  Any task in which an external team will provide, and you are a client of is still your responsibility.  If Team A provides a service, i.e. deployment, to Team B, Team B must still understand how that service interaction works and if any part of that fails, it is Team B's ultimate responsibility to make sure the application is running for their clients.  Team A may provide an SLA, but ultimately is Team B which must understand this responsibility.  Decisions are made everyday, understanding how these architecture decisions will affect the SDLC, your clients, and teams which offer you services is extremely important to the success of SpaceX, do not take this lightly.  To interact with these services, you as the client would use a REST API <span style="color: rgb(255,0,0);">AND communication with the team that owns that API. </span><span style="color: rgb(0,0,0);"> This will true for all of the following services, some of these services innately interact with each other, in which explicit communication via API's is unnecessary.</span></p>
+
+		<h1 id="TieredApplicationPhilosophy-TierDefinitions">Tier Definitions</h1>
+		<p>Application Service Stack - The full service, may just be called &quot;service&quot;</p>
+		<p>Application - One level, may just be called &quot;service&quot;</p>
+		<p>Infrastructure service - One level that is not the front end service, may be called &quot;service&quot;</p>
+		<p>Anything else - &quot;service&quot;</p>
+		<p>If the end user is the ultimate client (GUI or service API) the rest of the &quot;application service stack&quot; can be easily described by the follow levels.  Each level is supported by the one below it, and services at each tier do not interact with each other.  This will be more clear with the lower levels.</p>
+
+		<h2 id="TieredApplicationPhilosophy-TierNegativeOne">Tier Negative One</h2>
+		<p>Tier zero is the infrastructure layer. Ideally, future applications will use some sort of application platform, but not being built on the platform does not prevent inter-operation in the proposed ecosystem.  These are your support:</p>
+		<ul>
+			<li>Service Discovery Documentation (/DNS)</li>
+			<li>Source Code Repository</li>
+			<li>Continuous Delivery (Github)</li>
+			<li>Integration (Travis CI)</li>
+			<li>Development Process (Bug-Tracking)</li>
+			<li>Documentation (Wiki)</li>
+			<li>Email as a Service</li>
+		</ul>
+
+		<h2 id="TieredApplicationPhilosophy-TierZero">Tier Zero</h2>
+		<p>This is the virtualization layer of the datacenter, it is not part of your service, but you may need to know about when deploying your software.  Generally speaking imagine this to be the bare metal etc, and the teams that provision for you a container to run your services.  If using AWS, AWS itself or the EC2 service would be the this layer.</p>
+		<ul>
+			<li>Virtualization as a service</li>
+			<li>Physical machines as a service</li>
+			<li>Configuration setup as a service</li>
+		</ul>
+
+		<h2 id="TieredApplicationPhilosophy-TierOne">Tier One</h2>
+		<p>Tier one software services are bare-bones utility applications that are applicable to multiple departments. They facilitate data storage and functions that everybody needs. These are:</p>
+		<ul>
+			<li>Database as a Service (MSSQL, MongoDB, Cassandra, etc...)</li>
+			<li>Persistence File Storage (NAZ/S3)</li>
+			<li>DNS</li>
+			<li>Logging as a service (ELK stack, Logentries)</li>
+			<li>Monitoring as service</li>
+			<li>Library Repository Management (nuget repository, python lib, aptitude repo, etc...)</li>
+			<li>Authentication and Authorization as a Service, LDAP, AD, etc...</li>
+		</ul>
+		<h2 id="TieredApplicationPhilosophy-TierTwo">Tier Two</h2>
+		<p>Your first class service, or Microservice, which is independently deployable, and as with all other tiers does not depend on any tier this one or higher.  There are many different types of services in this area, because these are the core business services that actually provide the explicit interaction with that part of the business.  Just as with all the other services, for clients to gain the value of your service, they will consume data from RESTful API endpoint.</p>
+
+		<h2 id="TieredApplicationPhilosophy-TierThree">Tier Three</h2>
+		<p>Composite services are the foundation for delivering business value.  These services call directly Tier Two services so that the composition of services solves a specific business need.  If Tier Two is providing options to run the business, the configuration of Tier Three actually runs the business.  These can be as simple as a website that makes service calls, or a full stack service that processes information in the background and then provides an API on top of it.  Composite services are usually developed and owned by the team in which they provide the most value.</p>
+	</div>
+</div>
