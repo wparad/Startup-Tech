@@ -11,20 +11,17 @@
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
 
-    <script type="text/javascript">        
+    <script type="text/javascript">
+    	var LOADED_PAGE = null;
         function load_review(name) {
             $('#replace-content').load('./content/reviews/' + name + '.html #replace-content');
         }
 
-        function load_page() {
-        	var result = document.location.href.match(/.*\/?\?body=([^#]*)#?$/) || [];
-        	var name =  result[1] || 'home';
-        	$('#page-body').load('./content/' + name + '.html #page-body');
-        }
-
-        function set_page(name) {
-        	window.history.pushState(name, "page 2", "?body=" + name);
-        	load_page();
+        function load_page(name) {
+        	if(name) { window.history.pushState("Startup Technologies", "Startup Technologies", "?"); }
+        	var result = document.location.href.match(/^.*\/?\?body=([^#]*)#?$/) || [];
+        	LOADED_PAGE =  result[1] || name || LOADED_PAGE || 'home';
+        	$('#page-body').load('./content/' + LOADED_PAGE + '.html #page-body');
         	return false;
         }
     </script>
@@ -54,12 +51,13 @@
     <div id="wrapper" class="container">
         <div id="menu" class="container">
             <ul id="primaryNavItems">
-                <li><a href="#" onclick="set_page('home')" title="Home">Home</a></li>
-                <li><a href="#" onclick="set_page('innovation')" title="Innovation">Innovation</a></li>
-                <li><a href="#" onclick="set_page('reviews')" title="Reviews">Reviews</a></li>
-                <li><a href="#" onclick="set_page('systems')" title="Systems">Systems</a></li>
-                <li><a href="#" onclick="set_page('readings')" title="Readings">Readings</a></li>
-                <li><a href="#" onclick="set_page('contact')" title="Contact">Contact</a></li>
+                <li><a href="#" onclick="load_page('home')" title="Home">Home</a></li>
+                <li><a href="#" onclick="load_page('innovation')" title="Innovation">Innovation</a></li>
+                <li><a href="#" onclick="load_page('reviews')" title="Reviews">Reviews</a></li>
+                <li><a href="#" onclick="load_page('systems')" title="Systems">Systems</a></li>
+                <li><a href="#" onclick="load_page('interview')" title="Interview">Interview Questions</a></li>
+                <li><a href="#" onclick="load_page('readings')" title="Readings">Readings</a></li>
+                <li><a href="#" onclick="load_page('contact')" title="Contact">Contact</a></li>
             </ul>
         </div>
 
